@@ -1,0 +1,15 @@
+.location-container {
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-direction: row;
+}
+
+@media (max-width: 640px) {
+  .location-container {
+    flex-direction: column;
+    gap: 0;
+    justify-content: center !important;
+    margin-top: 0;
+  }
+}

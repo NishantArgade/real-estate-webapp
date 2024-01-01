@@ -1,0 +1,7 @@
+# Keep environment variables of client
+/client/node_modules
+/client/.env
+
+# Keep environment variables of server
+/server/node_modules
+/server/.env
