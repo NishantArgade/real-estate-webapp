@@ -50,7 +50,7 @@ export const getAllBookedVisit = asyncHandler(async (req, res) => {
     select: { bookedVisits: true },
   });
 
-  res.status(200).json({ bookings: allBookings.bookedVisits });
+  res.status(200).json({ bookings: allBookings?.bookedVisits || [] });
 });
 export const cancelBookedVisit = asyncHandler(async (req, res) => {
   const { email } = req.body;
@@ -128,5 +128,5 @@ export const allFavourit = asyncHandler(async (req, res) => {
     select: { favResidenciesID: true },
   });
 
-  res.status(200).json({ favouritResidencies: allFav.favResidenciesID });
+  res.status(200).json({ favouritResidencies: allFav?.favResidenciesID || [] });
 });
