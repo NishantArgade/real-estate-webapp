@@ -24,7 +24,7 @@ const Property = () => {
   const { pathname } = useLocation();
   const { user } = useAuth0();
 
-  const id = pathname.split("/").slice(-1)[0];
+  const id = pathname?.split("/")?.slice(-1)[0];
 
   const { data, isLoading, isError, refetch } = useProperty(id);
 
