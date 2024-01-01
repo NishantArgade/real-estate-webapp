@@ -3,11 +3,11 @@ import React, { useContext, useEffect } from "react";
 import { useMutation } from "react-query";
 import { Outlet } from "react-router-dom";
 import { UserDetailContext } from "../App";
+import useBookings from "../Hooks/useBookings";
 import useFavourites from "../Hooks/useFavourites";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { registerUser } from "../utils/api";
-import useBookings from "../Hooks/useBookings";
 
 const Layout = () => {
   const { setUserDetails } = useContext(UserDetailContext);
@@ -17,8 +17,10 @@ const Layout = () => {
     mutationFn: (token) => registerUser(user?.email, token),
   });
 
-  useFavourites();
-  useBookings();
+  
+    useFavourites();
+    useBookings();
+  
 
   useEffect(() => {
     const getTokenAndRegister = async () => {

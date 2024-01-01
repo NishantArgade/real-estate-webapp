@@ -29,8 +29,8 @@ const useFavourites = () => {
   ref.current = refetch;
 
   useEffect(() => {
-    ref.current && ref.current();
-  }, [token]);
+    user?.email && ref.current && ref.current();
+  }, [token, user]);
 
   return { data, isSuccess, isError };
 };

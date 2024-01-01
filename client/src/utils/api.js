@@ -2,7 +2,9 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
-export const api = (axios.defaults.baseURL = `${import.meta.env.VITE_SERVER_BASE_URL}/api`);
+export const api = (axios.defaults.baseURL = `${
+  import.meta.env.VITE_SERVER_BASE_URL
+}/api`);
 
 export const getAllProperties = async () => {
   try {
@@ -115,7 +117,7 @@ export const toFavourit = async (id, email, token) => {
 };
 export const getAllFavourites = async (email, token) => {
   try {
-    if (!token) return;
+    if (!token || !email) return;
 
     const data = await axios.post(
       `/user/allFavourit`,
@@ -128,7 +130,7 @@ export const getAllFavourites = async (email, token) => {
         },
       }
     );
-    return data.data.favouritResidencies;
+    return data?.data?.favouritResidencies;
   } catch (error) {
     console.log(error);
     toast.error("Something went wrong, Please try again");
@@ -137,7 +139,7 @@ export const getAllFavourites = async (email, token) => {
 };
 export const getAllBookings = async (email, token) => {
   try {
-    if (!token) return;
+    if (!token || !email) return;
 
     const data = await axios.post(
       `/user/allBookedVisit`,
@@ -150,7 +152,7 @@ export const getAllBookings = async (email, token) => {
         },
       }
     );
-    return data.data.bookings;
+    return data?.data?.bookings;
   } catch (error) {
     console.log(error);
     toast.error("Something went wrong, Please try again");
